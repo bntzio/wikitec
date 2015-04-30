@@ -38,6 +38,9 @@ end
 # bootstrap for styling
 gem 'bootstrap-sass'
 
+# haml - HTML abstraction markup language, instead of erb
+gem 'haml'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

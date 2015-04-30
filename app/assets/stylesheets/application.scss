@@ -16,3 +16,34 @@
  
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+a{
+  color: black;
+}
+
+a:hover{
+  color: black;
+  text-decoration: underline;
+}
+
+.link{
+  text-decoration: underline;
+}
+
+.nav-tabs > li > a{
+  color: black;
+}
+
+.subtitle{
+  font-size: 60px;
+}
+
+.right-position{
+  text-align: right;
+}
+
+
+#title{
+  text-align: center;
+  text-decoration: underline;
+}
