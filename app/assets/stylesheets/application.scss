@@ -34,12 +34,36 @@ a:hover{
   color: black;
 }
 
-.subtitle{
-  font-size: 60px;
+.user-info {
+   margin-top: 9px;
+}
+ 
+.nav {
+   margin-top: 5px;
 }
 
-.right-position{
-  text-align: right;
+.btn-default{
+  background: #0781b0;
+  color: white;
+  border: none;
+}
+
+.btn-default:hover{
+  background: #044b66;
+  color: white;
+  border: none;
+}
+
+.btn-danger{
+  background: #b03607;
+  color: white;
+  border: none;
+}
+
+.btn-danger:hover{
+  background: #7f2705;
+  color: white;
+  border: none;
 }
 
 
