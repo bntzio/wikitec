@@ -50,6 +50,9 @@ gem 'figaro', '1.0'
 # pundit for user authorization
 gem 'pundit'
 
+# faker to seed data
+gem 'faker'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
