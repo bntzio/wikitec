@@ -1,0 +1,14 @@
+.row
+  .col-md-10
+    %h1 Public Wikis
+  .col-md-2
+    .wiki-buttons
+      = link_to "New wiki", new_wiki_path, class: 'btn btn-default'
+%br
+%br
+%table{:style => "width:100%", :border => "1"}
+  - @wikis.each do |f|
+    %tr
+      %td= link_to f.title, f
+      %td topic
+      %td history

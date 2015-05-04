@@ -1,0 +1,19 @@
+%h1 Edit Wiki
+.row
+  .col-md-4
+    %p Guidelines for wikis
+    %ul
+      %li Make sure the it rhymes.
+      %li Don't use the letter "A".
+      %li The incessant use of hashtags will get you banned.
+  .col-md-8
+    = form_for @wiki do |f|
+      .form-group
+        = f.label :title
+        = f.text_field :title, class: 'form-control', placeholder: "Enter wiki title"
+      .form-group
+        = f.label :body
+        = f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body"
+      .form-group
+        = f.submit "Save", class: 'btn btn-default'
+        = link_to "Back", :back, class: 'btn btn-link'

@@ -1,0 +1,9 @@
+.row
+  .col-md-9
+    %h1= @wiki.title
+    %p= @wiki.body
+  .col-md-3
+    .wiki-buttons
+      = link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-default'
+      = link_to "Delete", @wiki, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this wiki?'}
+      = link_to "Back", wikis_path, class: 'btn btn-link'
