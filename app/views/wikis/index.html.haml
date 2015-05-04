@@ -3,7 +3,8 @@
     %h1 Public Wikis
   .col-md-2
     .wiki-buttons
-      = link_to "New wiki", new_wiki_path, class: 'btn btn-default'
+      - if policy(Wiki.new).create?
+        = link_to "New wiki", new_wiki_path, class: 'btn btn-default'
 %br
 %br
 %table{:style => "width:100%", :border => "1"}

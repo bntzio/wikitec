@@ -47,6 +47,9 @@ gem 'devise'
 # figaro to handle sensitive data
 gem 'figaro', '1.0'
 
+# pundit for user authorization
+gem 'pundit'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
