@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :wikis
+
+  get 'checkouts', to: 'checkouts#index'
+  post 'checkouts/charge'
   
   get 'about' => 'welcome#about'
 

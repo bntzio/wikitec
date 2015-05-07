@@ -1,0 +1,45 @@
+%h1{:align => "center"} Conviértete en Premium!
+.row{:align => "center"}
+  .col-md-12
+    %h3 Obtén los siguientes beneficios
+    %ul
+      %span Crea wikis privadas ilimitadas
+      %span ·
+      %span Añade colaboradores a tus wikis privadas
+      %span ·
+      %span Ingresa al exclusivo canal Slack de wikitec
+    %h4
+      Sólo $79 pesos al mes
+      %span#price-description (equivalente a un café grande)
+  .col-md-12
+    = form_tag('/checkouts/charge', id: 'card-form') do
+      %span.card-errors
+      / .form-row
+      /   %label
+      /     %span Cargo en Centavos
+      /     %input{:name => "chargeInCents", :size => "10", :type => "text"}/
+      / .form-row
+      /   %label
+      /     %span Email del comprador
+      /     %input{:name => "emailBuyer", :size => "30", :type => "email"}
+      .form-row
+        %label
+          %span Nombre del tarjetahabiente
+          %input{"data-conekta" => "card[name]", :class => 'form-control', :placeholder => "Nombre en la tarjeta", :style => "text-align: center", :size => "30", :type => "text"}/
+      .form-row
+        %label
+          %span Número de tarjeta de crédito
+          %input{"data-conekta" => "card[number]", :class => 'form-control', :placeholder => "Número de la tarjeta", :style => "text-align: center", :size => "20", :type => "text"}/
+      .form-row
+        %label
+          %span CVC
+          %input{"data-conekta" => "card[cvc]", :class => 'form-control', :placeholder => "CVC", :style => "text-align: center", :size => "4", :type => "text"}/
+      .form-row
+        %label
+          %span Fecha de expiración (MM/AAAA)
+          %input{"data-conekta" => "card[exp_month]", :size => "2", :type => "text"}/
+        %span /
+        %input{"data-conekta" => "card[exp_year]", :size => "4", :type => "text"}/
+      %br  
+      %button{:type => "submit", :class => 'btn btn-default'} Hazme Premium!
+      = link_to "No quiero ser Premium", wikis_path, class: 'btn btn-link'

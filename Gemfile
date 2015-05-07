@@ -53,6 +53,9 @@ gem 'pundit'
 # faker to seed data
 gem 'faker'
 
+# conekta to process payments
+gem 'conekta'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
