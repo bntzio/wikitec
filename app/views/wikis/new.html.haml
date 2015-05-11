@@ -14,9 +14,10 @@
         %br
         = f.label :body
         = f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body"
-        / %br
-        / = f.label :private
-        / = f.check_box :private
+        - if current_user.role == 'admin' || current_user.role == 'premium'
+          %br
+          = f.label :private
+          = f.check_box :private
       .form-group
         = f.submit "Save", class: 'btn btn-primary'
         = link_to "Back", :back, class: 'btn btn-link'
