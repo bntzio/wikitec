@@ -1,7 +1,7 @@
 .row
   .col-md-9
-    %h1= @wiki.title
-    %p= @wiki.body
+    %h1= markdown_to_html @wiki.title
+    %p= markdown_to_html @wiki.body
   .col-md-3
     .wiki-buttons
       - if policy(@wiki).edit?

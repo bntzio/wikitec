@@ -56,6 +56,9 @@ gem 'faker'
 # conekta to process payments
 gem 'conekta'
 
+# redcarpet to post markdown
+gem 'redcarpet'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
