@@ -54,7 +54,7 @@ gem 'pundit'
 gem 'faker'
 
 # conekta to process payments
-gem 'conekta'
+gem 'conekta', '0.5.2'
 
 # redcarpet to post markdown
 gem 'redcarpet'

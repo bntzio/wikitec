@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users
-
-  resources :wikis
+  
+  resources :wikis do
+    get :privates, on: :collection
+  end
 
   get 'checkouts', to: 'checkouts#index'
   post 'checkouts/charge'

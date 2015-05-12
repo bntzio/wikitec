@@ -3,6 +3,10 @@ class WikiPolicy < ApplicationPolicy
     user.present?
   end
 
+  def privates?
+    user.present? && (user.premium? || user.admin?)
+  end
+
   def show?
     user.present? && (record.private? == false || (record.user == user) || (user.admin?))
   end

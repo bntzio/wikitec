@@ -12,7 +12,14 @@
 <body>
   <div class="container">
     <ul class="nav nav-tabs">
-      <li><%= link_to "wikitec", root_path %></li>
+      <% if current_user %>
+        <li><%= link_to "Wikis públicas", wikis_path %></li>
+      <% else %>
+        <li><%= link_to "wikitec", root_path %></li>
+      <% end %>
+      <% if current_user %>
+        <li><%= link_to "Wikis privadas", privates_wikis_path %>
+      <% end %>
       <li><%= link_to "Acerca de", about_path %></li>
       <div class="pull-right user-info">
         <% if current_user %>

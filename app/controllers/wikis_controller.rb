@@ -1,6 +1,11 @@
 class WikisController < ApplicationController
   def index
-    @wikis = Wiki.visible_to()
+    @wikis = Wiki.visible_to_all()
+    authorize @wikis
+  end
+
+  def privates
+    @wikis = Wiki.visible_to_premium(current_user)
     authorize @wikis
   end
 
