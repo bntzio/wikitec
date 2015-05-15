@@ -9,19 +9,11 @@
       %span ·
       %span Ingresa al exclusivo canal Slack de wikitec
     %h4
-      Sólo $79 pesos al mes
-      %span#price-description (equivalente a un café grande)
+      Sólo $229 pesos
+      %span#price-description (un sólo pago - tiempo limitado)
   .col-md-12
     = form_tag('/checkouts/charge', id: 'card-form') do
       %span.card-errors
-      / .form-row
-      /   %label
-      /     %span Cargo en Centavos
-      /     %input{:name => "chargeInCents", :size => "10", :type => "text"}/
-      / .form-row
-      /   %label
-      /     %span Email del comprador
-      /     %input{:name => "emailBuyer", :size => "30", :type => "email"}
       .form-row
         %label
           %span Nombre del tarjetahabiente

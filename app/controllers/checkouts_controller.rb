@@ -9,23 +9,26 @@ class CheckoutsController < ApplicationController
 
   def charge
     begin
-      @customer = Conekta::Customer.create({
-        :name => "#{current_user.name}",
-        :email => "#{current_user.email}"
+      @charge = Conekta::Charge.create({
+        amount: "22900",
+        currency: "MXN",
+        description: "Premium Account",
+        reference_id: "premium-account",
+        details:
+        {
+          name: "#{current_user.name}",
+          email: "#{current_user.email}"
+        },
+        card: params['conektaTokenId']
         })
-
-      @card = @customer.create_card(:token => params['conektaTokenId'])
-
-      @subscription = @customer.create_subscription({
-        :plan => "premium-plan"
-        })
+      flash[:notice] = "Card charged successfully."
     rescue Conekta::ValidationError => e
       puts e.message_to_purchaser
     rescue Conekta::ProcessingError => e
       puts e.message_to_purchaser
     rescue Conekta::Error
-      puts e.message
+      puts e.message_to_purchaser
     end
-    # current_user.upgrade - Use a webhook to check if the user payment is currently valid
+    current_user.upgrade
   end
 end

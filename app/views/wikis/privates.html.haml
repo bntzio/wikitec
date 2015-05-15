@@ -6,11 +6,14 @@
       - if policy(Wiki.new).create?
         = link_to "New wiki", new_wiki_path, class: 'btn btn-default'
 %br
-%table{class: "table table-hover"}
-  - @wikis.each do |f|
-    %tr
-      %td= link_to f.title, f
-      %td topic
-      %td user
-      %td history
-%br
+- if @wikis.count > 0
+  %table{class: "table table-hover"}
+    - @wikis.each do |f|
+      %tr
+        %td= link_to f.title, f
+        %td topic
+        %td user
+        %td history
+  %br
+- else
+  %p You don't have any private wikis :(
