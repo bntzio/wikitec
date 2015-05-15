@@ -76,6 +76,8 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    epic-editor-rails (0.2.4)
+      railties (>= 3.2, < 5.0)
     erubis (2.7.0)
     execjs (2.5.2)
     faker (1.4.3)
@@ -206,6 +208,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   conekta (= 0.5.2)
   devise
+  epic-editor-rails
   faker
   figaro (= 1.0)
   haml
