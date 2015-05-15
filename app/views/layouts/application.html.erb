@@ -18,9 +18,15 @@
         <li><%= link_to "wikitec", root_path %></li>
       <% end %>
       <% if current_user %>
-        <li><%= link_to "Wikis privadas", privates_wikis_path %>
+        <% if (current_user.role == 'premium') || (current_user.role == 'admin') %>
+          <li><%= link_to "Wikis privadas", privates_wikis_path %>
+        <% end %>
       <% end %>
-      <li><%= link_to "Acerca de", about_path %></li>
+      <% if current_user == nil %>
+        <li><%= link_to "Acerca de", about_path %></li>
+      <% else %>
+        <li></li>
+      <% end %>
       <div class="pull-right user-info">
         <% if current_user %>
           Hola <% if current_user.name? %><%= current_user.name %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %><% else %><%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %><% end %>
