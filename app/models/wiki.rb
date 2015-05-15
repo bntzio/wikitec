@@ -1,7 +1,8 @@
 class Wiki < ActiveRecord::Base
   belongs_to :user
+  has_many :collaborators
+  has_many :users, through: :collaborators
 
-  scope :visible_to_all, -> { where(private: false) }
   scope :visible_to_premium, -> (user) { where(user: user, private: true) }
 
   after_initialize :init
@@ -12,6 +13,10 @@ class Wiki < ActiveRecord::Base
 
   def markdown_body
     render_as_markdown body
+  end
+
+  def public?
+    self.private == false
   end
 
   private

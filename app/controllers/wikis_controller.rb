@@ -1,7 +1,6 @@
 class WikisController < ApplicationController
   def index
-    @wikis = Wiki.visible_to_all()
-    authorize @wikis
+    @wikis = policy_scope(Wiki)
   end
 
   def privates
@@ -32,13 +31,15 @@ class WikisController < ApplicationController
   end
 
   def edit
+    @collaborator = Collaborator.new
     @wiki = Wiki.find(params[:id])
-    authorize @wiki
+    @collaborators = @wiki.collaborators
+    @users = User.all
   end
 
   def update
      @wiki = Wiki.find(params[:id])
-     authorize @wiki
+     
      if @wiki.update_attributes(wiki_params)
        flash[:notice] = "Wiki was updated."
        redirect_to @wiki

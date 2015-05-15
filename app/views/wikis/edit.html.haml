@@ -17,3 +17,34 @@
       .form-group
         = f.submit "Save", class: 'btn btn-default'
         = link_to "Back", :back, class: 'btn btn-link'
+    %br
+- if @wiki.private?
+  - if current_user.role == 'admin' || (current_user.role == 'premium' && current_user.id == @wiki.user_id)
+    %h3 Add Collaborator
+    = form_for [@wiki, @collaborator] do |f|
+      .form-group
+        = f.label :collaborator_email
+        %span{style: 'display: none;'}
+          = text_field_tag :wiki_id, (@wiki.id)
+        = text_field_tag "email", nil, class: 'form-control', :placeholder => "Enter the email of the user you want to add as collaborator"
+        %br
+        = submit_tag "Add", class: 'btn btn-primary'
+      .form-group
+        %h5 All Users
+        %table{class: 'table table-hover'}
+          - @users.each do |f|
+            %tr
+              %td= f.name
+              %td= f.email
+              %td= "Add Glyphicon"
+        %h5 Current Collaborators
+        - if @collaborators.count > 0
+          %table{class: 'table table-hover'}
+            - @collaborators.each do |f|
+              %tr
+                %td= "User id: #{f.user_id}"
+                %td= "Collaborator name"
+                %td= "Collaborator email"
+                %td= "Delete Glyphicon"
+        - else
+          %p You don't have any collaborators yet! :(

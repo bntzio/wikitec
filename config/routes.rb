@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
   resources :wikis do
     get :privates, on: :collection
+    resources :collaborators, only: [:create, :destroy]
   end
 
   get 'checkouts', to: 'checkouts#index'

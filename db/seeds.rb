@@ -12,6 +12,18 @@ require 'faker'
 end
 users = User.all
 
+# Create Premium Users
+5.times do
+  premium_user = User.new(
+    name: Faker::Name.name,
+    email: Faker::Internet.email,
+    password: "premium_rocks",
+    role: "premium"
+    )
+  premium_user.skip_confirmation!
+  premium_user.save!
+end
+
 # Create Wikis
 25.times do
   Wiki.create!(
