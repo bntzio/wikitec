@@ -22,7 +22,7 @@ class CheckoutsController < ApplicationController
         card: params['conektaTokenId']
         })
       flash[:notice] = "Card charged successfully."
-    rescue Conekta::ValidationError => e
+    rescue Conekta::ParameterValidationError => e
       puts e.message_to_purchaser
     rescue Conekta::ProcessingError => e
       puts e.message_to_purchaser
