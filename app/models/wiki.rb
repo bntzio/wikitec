@@ -8,6 +8,11 @@ class Wiki < ActiveRecord::Base
   default_scope { order('created_at DESC') }
   scope :visible_to_premium, -> (user) { where(user: user, private: true) }
 
+  validates :title, length: { minimum: 7, maximum: 72 }, presence: true
+  validates :body, length: { minimum: 120 }, presence: true
+  validates :tag_list, presence: :true
+  validates :user, presence: true
+
   after_initialize :init
 
   def init
