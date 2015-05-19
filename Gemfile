@@ -65,6 +65,9 @@ gem 'epic-editor-rails'
 # acts-as-taggable-on to create tags
 gem 'acts-as-taggable-on'
 
+# will_paginate for pagination
+gem 'will_paginate', '~> 3.0.5'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

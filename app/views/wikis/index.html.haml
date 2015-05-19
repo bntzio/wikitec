@@ -17,4 +17,5 @@
       %td= tagging_list(f)
       %td= "#{f.user.name}"
       %td history
-%br
+%div{ :align => "center" }
+  = will_paginate @wikis

@@ -1,14 +1,19 @@
 class WikisController < ApplicationController
+  require 'will_paginate/array'
+
   def index
+    @scoped_wikis = policy_scope(Wiki)
+    @scoped_tagged_wikis = policy_scope(Wiki.tagged_with(params[:tag]))
     if params[:tag]
-      @wikis = policy_scope(Wiki.tagged_with(params[:tag]))
+      @wikis = @scoped_tagged_wikis.paginate(page: params[:page], per_page: 25)
     else
-      @wikis = policy_scope(Wiki)
+      @wikis = @scoped_wikis.paginate(page: params[:page], per_page: 50)
     end
   end
 
   def privates
-    @wikis = Wiki.visible_to_premium(current_user)
+    @scoped_wikis = Wiki.visible_to_premium(current_user)
+    @wikis = @scoped_wikis.paginate(page: params[:page], per_page: 35)
     authorize @wikis
   end
 
