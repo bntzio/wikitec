@@ -5,6 +5,7 @@ class Wiki < ActiveRecord::Base
   has_many :collaborators
   has_many :users, through: :collaborators
 
+  default_scope { order('created_at DESC') }
   scope :visible_to_premium, -> (user) { where(user: user, private: true) }
 
   after_initialize :init
