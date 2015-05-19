@@ -6,6 +6,10 @@
       - if policy(Wiki.new).create?
         = link_to "New wiki", new_wiki_path, class: 'btn btn-default'
 %br
+#tag_cloud
+  - tag_cloud @scoped_wikis.tag_counts, %w[s m l] do |tag, css_class|
+    = link_to tag.name, tag_path(tag.name), class: css_class
+%br
 - if @wikis.count > 0
   %table{class: "table table-hover"}
     - @wikis.each do |f|
