@@ -15,8 +15,7 @@
     - @wikis.each do |f|
       %tr
         %td= link_to f.title, f
-        %td topic
-        %td user
+        %td= tagging_list(f)
         %td history
   %br
 - else
