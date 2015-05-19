@@ -11,7 +11,10 @@
       .form-group
         = f.label :title
         = f.text_field :title, class: 'form-control', placeholder: "Enter wiki title"
-        %br
+      .form-group
+        = f.label :tag_list, "Tags (separated by commas)"
+        = f.text_field :tag_list, class: 'form-control', placeholder: "Enter tags"
+      .form-group
         = f.label "Body - if the text area doesn't show up, refresh the page"
         #epiceditor.field
         = f.text_area :body, rows: 8, class: 'form-control hide', id: "epictextarea", placeholder: "Enter wiki body"

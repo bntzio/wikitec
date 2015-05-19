@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   
+  get 'tags/:tag', to: 'wikis#index', as: :tag
+
   resources :wikis do
     get :privates, on: :collection
     resources :collaborators, only: [:create, :destroy]

@@ -1,6 +1,10 @@
 class WikisController < ApplicationController
   def index
-    @wikis = policy_scope(Wiki)
+    if params[:tag]
+      @wikis = policy_scope(Wiki.tagged_with(params[:tag]))
+    else
+      @wikis = policy_scope(Wiki)
+    end
   end
 
   def privates
@@ -62,7 +66,9 @@ class WikisController < ApplicationController
     end
   end
 
+  private
+
   def wiki_params
-    params.require(:wiki).permit(:title, :body, :private)
+    params.require(:wiki).permit(:title, :body, :private, :tag_list)
   end
 end

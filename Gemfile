@@ -62,6 +62,9 @@ gem 'redcarpet'
 # epic editor to preview markdown
 gem 'epic-editor-rails'
 
+# acts-as-taggable-on to create tags
+gem 'acts-as-taggable-on'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

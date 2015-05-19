@@ -25,9 +25,10 @@ users = User.all
 end
 
 # Create Wikis
-25.times do
+500.times do
   Wiki.create!(
     title: Faker::Lorem.sentence,
+    tag_list: Faker::Lorem.word,
     body: Faker::Lorem.paragraph,
     user: users.sample
   )
