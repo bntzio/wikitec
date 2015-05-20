@@ -3,9 +3,15 @@ Rails.application.routes.draw do
   devise_for :users
   
   get 'tags/:tag', to: 'wikis#index', as: :tag
-
+  
   resources :wikis do
     get :privates, on: :collection
+    resources :versions, only: [:destroy] do
+      member do
+        get :diff, to: 'versions#diff'
+        patch :rollback, to: 'versions#rollback'
+      end
+    end
     resources :collaborators, only: [:create, :destroy]
   end
 

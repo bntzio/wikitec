@@ -11,11 +11,15 @@
     = link_to tag.name, tag_path(tag.name), class: css_class   
 %br
 %table{class: "table table-hover"}
+  %thead
+    %tr
+      %th Wiki
+      %th Tags
+      %th Author
   - @wikis.each do |f|
     %tr
       %td= link_to f.title, f
       %td= tagging_list(f)
       %td= "#{f.user.name}"
-      %td history
 %div{ :align => "center" }
   = will_paginate @wikis

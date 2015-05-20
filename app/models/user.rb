@@ -33,4 +33,8 @@ class User < ActiveRecord::Base
   def downgrade
     self.update_attributes(:role => 'standard')
   end
+
+  def self.find_version_author(version)
+    find(version.terminator)   
+  end
 end

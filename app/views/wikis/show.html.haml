@@ -3,6 +3,8 @@
     %h1= @wiki.title
     %small
       %p= "Created at: #{@wiki.created_at} by #{@wiki.user.name}"
+      - if @wiki.versions.last.terminator != nil
+        %p= "Last edited at: #{@wiki.versions.last.created_at} by #{find_version_author_name(@wiki.versions.last)}"
       %p= tagging_list(@wiki)
     %p= @wiki.markdown_body
   .col-md-3

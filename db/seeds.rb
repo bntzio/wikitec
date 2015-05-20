@@ -27,9 +27,9 @@ end
 # Create Wikis
 500.times do
   Wiki.create!(
-    title: Faker::Lorem.sentence,
+    title: Faker::Lorem.sentence(3),
     tag_list: Faker::Lorem.word,
-    body: Faker::Lorem.paragraph,
+    body: Faker::Lorem.paragraph(10),
     user: users.sample
   )
 end

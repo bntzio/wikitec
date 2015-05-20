@@ -1,0 +1,34 @@
+<h2>Previous Versions</h2>
+
+<table class='table table-hover'>
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Date</th>
+      <th>Author</th>
+      <th>Event</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%- wiki.versions.reverse.each do |version| %>
+      <tr>
+        <td><%= version.index %></td>
+        <td><%= version.created_at %></td>
+        <% if version.terminator == nil %>
+          <td><%= wiki.user.name %></td>
+        <% else %>
+          <td><%= find_version_author_name(version) %></td>  
+        <% end %>
+        <td><%= version.event.humanize %></td>
+        <% if version.index > 0 %>
+          <td><%= link_to 'Diff', diff_wiki_version_path(wiki, version) %></td>
+          <td><%= link_to 'Rollback', rollback_wiki_version_path(wiki, version), method: 'PATCH' %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

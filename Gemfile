@@ -68,6 +68,12 @@ gem 'acts-as-taggable-on'
 # will_paginate for pagination
 gem 'will_paginate', '~> 3.0.5'
 
+# paper_trail for model versioning
+gem 'paper_trail'
+
+# diffy to diff content
+gem 'diffy'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
